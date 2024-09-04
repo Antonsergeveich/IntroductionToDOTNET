@@ -10,6 +10,7 @@ namespace Geometry
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
