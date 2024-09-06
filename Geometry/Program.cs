@@ -10,7 +10,6 @@ namespace Geometry
     internal class Program
     {
         private static int n;
-        static readonly string delimeter = "\n======================================\n";
         static void Main(string[] args)
         {
 
@@ -48,6 +47,26 @@ namespace Geometry
             for (int i = n; i > 0; i--)
             {
                 for (int j = 0; j < n; j++) Console.Write(j < i - 1 ? " " : "*");
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+            Console.WriteLine("5)");
+            for(int i = 0; i < n; i++)
+            {
+                for(int j = i; j < n; j++)Console.Write(j < n - 1 ? " " : "/"); 
+                for(int j = 0; j <= i * 2; j++)Console.Write(j < i * 2  ? " " : "\\");
+                Console.WriteLine();
+            }
+            for(int i = 0; i < n; i++)
+            {
+                //for (int j = 0; j <= i; j++) Console.Write(j <= i ? " ": "\\");
+                //for(int j = (i + 1) * 2; j < n * 2; j++)Console.Write(j < n * 2 - 1 ? " " : "/");    
+                Console.WriteLine();
+            }
+            Console.WriteLine("6)");
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++) Console.Write((i + j) % 2 == 0 ? "+ " : "- ");
                 Console.WriteLine();
             }
             Console.WriteLine();
