@@ -1,5 +1,5 @@
-﻿#define STARS
-#define HARDCHESS
+﻿//#define STARS
+//#define HARDCHESS
 #define CHESSBOARD
 using System;
 using System.Collections.Generic;
@@ -106,12 +106,12 @@ namespace Geometry
             {
                 for (int j = 0; j <= s; ++j)
                 {
-                    if ( i == 0 && j == 0) Console.Write(Convert.ToChar(0x250F));      //charmap в поиске - таблица символов
-                    else if ( i == 0 && j == s) Console.Write(Convert.ToChar(0x2513)); //0x2513
-                    else if ( i == s && j == s) Console.Write(Convert.ToChar(0x2518)); //0x2518
-                    else if ( i == s && j == 0) Console.Write(Convert.ToChar(0x2517)); //0x2517
-                    else if ( i == 0 || i == s) Console.Write(Convert.ToChar(0x2501)); //0x2501
-                    else if ( j == 0 || j == s) Console.Write(Convert.ToChar(0x2503)); //0x2503
+                    if ( i == 0 && j == 0) Console.Write(Convert.ToChar("┌"));      //charmap в поиске - таблица символов
+                    else if ( i == 0 && j == s) Console.Write(Convert.ToChar("┐")); 
+                    else if ( i == s && j == s) Console.Write(Convert.ToChar("┘")); 
+                    else if ( i == s && j == 0) Console.Write(Convert.ToChar("└")); 
+                    else if ( i == 0 || i == s) Console.Write(Convert.ToChar("─")); 
+                    else if ( j == 0 || j == s) Console.Write(Convert.ToChar("│")); 
                     else Console.Write(i % 2 == j % 2 ? Convert.ToChar(0x2588) : ' ');
                 }
                 Console.WriteLine();
