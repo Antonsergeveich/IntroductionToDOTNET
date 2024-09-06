@@ -1,4 +1,7 @@
-﻿using System;
+﻿//#define STARS
+//#define HARDCHESS
+#define CHESSBOARD
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -13,6 +16,7 @@ namespace Geometry
         static void Main(string[] args)
         {
 
+#if STARS
             Console.WriteLine("Введите количество звёздочек: ");
             int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("0)");
@@ -51,19 +55,19 @@ namespace Geometry
             }
             Console.WriteLine();
             Console.WriteLine("5)");
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                for(int j = i; j < n; j++)Console.Write(j < n - 1 ? " " : "/"); 
-                for(int j = 0; j <= i * 2; j++)Console.Write(j < i * 2  ? " " : "\\");
+                for (int j = i; j < n; j++) Console.Write(j < n - 1 ? " " : "/");
+                for (int j = 0; j <= i * 2; j++) Console.Write(j < i * 2 ? " " : "\\");
                 Console.WriteLine();
             }
-            for(int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j <= i; j++) Console.Write(j <= i - 1 ? " ": "\\");
-                for(int j = 0; j <= (n - 1 - i) * 2; j++)Console.Write(j < (n - 1 - i) * 2  ? " " : "/");    
+                for (int j = 0; j <= i; j++) Console.Write(j <= i - 1 ? " " : "\\");
+                for (int j = 0; j <= (n - 1 - i) * 2; j++) Console.Write(j < (n - 1 - i) * 2 ? " " : "/");
                 Console.WriteLine();
             }
-            Console.WriteLine();
+            Console.WriteLine(); 
             Console.WriteLine("6)");
             for (int i = 0; i < n; i++)
             {
@@ -71,6 +75,34 @@ namespace Geometry
                 Console.WriteLine();
             }
             Console.WriteLine();
+#endif
+
+#if HARDCHESS
+            Console.WriteLine("Введите размер доски: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("8)");
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    for (int k = 0; k < size; k++)
+                    {
+                        for (int l = 0; l < size; l++)
+                        {
+                            Console.Write(i % 2 == k % 2 ? "* " : "  ");
+                        }
+                    }
+                    Console.WriteLine();
+                }
+            }
+            Console.WriteLine();  
+#endif
+
+#if CHESSBOARD
+            Console.WriteLine("Введите размер шахматной доски: ");
+            int s = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("7)");
+#endif
         }
     }
 }
