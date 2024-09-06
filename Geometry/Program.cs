@@ -1,5 +1,5 @@
-﻿//#define STARS
-//#define HARDCHESS
+﻿#define STARS
+#define HARDCHESS
 #define CHESSBOARD
 using System;
 using System.Collections.Generic;
