@@ -10,10 +10,10 @@ namespace Factorial
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите число до 20 включительно для вычисления факториала: ");
+            Console.WriteLine("Введите целое число от 0 до 65 включительно для вычисления факториала: ");
             int n = Convert.ToInt16(Console.ReadLine());
-            long f = 1; //Факториал
-            for (int i = 1; i <= n; i++)
+            ulong f = 1; //Факториал
+            for (uint i = 1; i <= n; i++)
             {
                 f *= i;
             }
