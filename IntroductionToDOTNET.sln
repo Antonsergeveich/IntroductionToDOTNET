@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAME", "GAME\GAME.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calc", "Calc\Calc.csproj", "{36A7F5A6-EADF-4C2F-94F1-657E162C52F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csproj", "{44893265-282B-48BA-B435-CCB12F4DC162}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{36A7F5A6-EADF-4C2F-94F1-657E162C52F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A7F5A6-EADF-4C2F-94F1-657E162C52F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36A7F5A6-EADF-4C2F-94F1-657E162C52F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44893265-282B-48BA-B435-CCB12F4DC162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44893265-282B-48BA-B435-CCB12F4DC162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44893265-282B-48BA-B435-CCB12F4DC162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44893265-282B-48BA-B435-CCB12F4DC162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
