@@ -1,5 +1,6 @@
 ﻿//#define ARRAYS1
-#define ARRAYS2
+//#define ARRAYS2
+#define JAGGED_ARRAYS
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace Arrays
     {
         static void Main(string[] args)
         {
-#if ARRAYS1
+#if ARRAYS1 // Одномерный
             //int[] arr = new int[] { 3, 5, 8, 13, 21 };
             //int[] arr = { 3, 5, 8, 13, 21 };
             Console.Write("Введите количество элементов: ");
@@ -56,7 +57,7 @@ namespace Arrays
             */ 
 #endif
 
-#if ARRAYS2
+#if ARRAYS2 // Двумерный
             //int[,] i_arr_2 = new int[3, 4]; // Размерность двумерного массива
             int[,] i_arr_2 = new int[,]
             {
@@ -87,6 +88,24 @@ namespace Arrays
             }
             Console.WriteLine();
 #endif
+#if JAGGED_ARRAYS //Зубчатые массивы
+            int[][] j_arr = new int[][]
+            {
+                new int[]{0,1,1,2},
+                new int[]{3,5,8,13,21},
+                new int[]{34,55,89},
+                new int[]{144,233,377,610,987},
+            };
+            for(int i = 0; i < j_arr.Length; i++)
+            {
+                for(int j = 0; j < j_arr[i].Length; j++)
+                {
+                    Console.Write(j_arr[i][j] + "\t");
+                }
+                Console.WriteLine();
+            }
+#endif
+
         }
     }
 }
