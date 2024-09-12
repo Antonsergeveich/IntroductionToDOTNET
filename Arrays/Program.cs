@@ -71,14 +71,21 @@ namespace Arrays
             Console.WriteLine($"Количество измерений массива: {i_arr_2.Rank}");
             Console.WriteLine($"Количество элементов в нулевом измерении (количество строк): {i_arr_2.GetLength(0)}");
             Console.WriteLine($"Количество элементов в первом измерении (количество столбцов): {i_arr_2.GetLength(1)}");
-            for ( int i = 0; i < i_arr_2.GetLength(0); i++)
+            for (int i = 0; i < i_arr_2.GetLength(0); i++)
             {
-                for( int j = 0; j < i_arr_2.GetLength(1); j++)
+                for (int j = 0; j < i_arr_2.GetLength(1); j++)
                 {
-                    Console.Write(i_arr_2[i,j] + "\t");
+                    Console.Write(i_arr_2[i, j] + "\t");
                 }
                 Console.WriteLine();
             }
+
+            foreach (int i in i_arr_2)
+            //foreach -  не различает строки и столбики и выводит многомерный массив как одномерный
+            {
+                Console.Write(i + "\t");
+            }
+            Console.WriteLine();
 #endif
         }
     }
