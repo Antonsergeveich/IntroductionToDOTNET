@@ -31,6 +31,7 @@ namespace GAME
                 //Console.WriteLine(key.ToString());
                 switch (key)
                 {
+                    //https://learn.microsoft.com/ru-ru/dotnet/api/system.consolekey?view=net-7.0
                     case ConsoleKey.UpArrow: // Чтобы перемещать смайлик стрелочками
                     case ConsoleKey.W: y--; break;
                     case ConsoleKey.DownArrow:
