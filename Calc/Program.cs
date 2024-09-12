@@ -1,4 +1,6 @@
-﻿using System;
+﻿//#define CALC1
+#define CALC2
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,7 @@ namespace Calc
     {
         static void Main(string[] args)
         {
+#if CALC1
             try
             {
                 Console.WriteLine("Введите выражение: ");
@@ -30,14 +33,40 @@ namespace Calc
                 else if (expression.Contains('-')) Console.WriteLine(a - b);
                 else if (expression.Contains('*')) Console.WriteLine(a * b);
                 else if (expression.Contains('/')) Console.WriteLine(a / b);
-                else Console.WriteLine("No operation"); 
+                else Console.WriteLine("No operation");
                 // Бросает исключения если нет соответствующего знака в методе Split
                 // Поэтому используем операторы обработки исключений try - catch
             }
             catch (Exception)
             {
                 Console.WriteLine("No operation");
+            } 
+#endif
+
+#if CALC2
+            Console.WriteLine("Введите выражение: ");
+            try
+            {
+                string expression = Console.ReadLine();
+                String[] tokens = expression.Split('+', '-', '*', '/');
+                double a = Convert.ToDouble(tokens[0]);
+                double b = Convert.ToDouble(tokens[1]);
+                //Вытаскиваем символ из строки:
+                //https://learn.microsoft.com/ru-ru/dotnet/api/system.string.indexofany?view=net-8.0
+                char x = expression[expression.IndexOfAny(new char[] { '+', '-', '*', '/' })];
+                switch (x)
+                {
+                    case '+': Console.WriteLine($"{a} + {b} = {a + b}"); break;
+                    case '-': Console.WriteLine($"{a} - {b} = {a - b}"); break;
+                    case '*': Console.WriteLine($"{a} * {b} = {a * b}"); break;
+                    case '/': Console.WriteLine($"{a} / {b} = {a / b}"); break;
+                }
             }
+            catch (Exception)
+            {
+                Console.WriteLine("No operation");
+            } 
+#endif
         }
     }
 }
