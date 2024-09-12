@@ -12,60 +12,43 @@ namespace GAME
     {
         static void Main(string[] args)
         {
-            Console.BufferWidth = Console.WindowWidth;
+            Console.BufferWidth = Console.WindowWidth;   //Задаём размеры буффера чтобы он полностью совпадал с размерами экрана
             Console.BufferHeight = Console.WindowHeight;
-           // Console.
-        //Генерация случайного числа
-        Random rand = new Random(); //1)Создаём объект класса 'Random'
-        int x = rand.Next(Console.BufferWidth);        //2)Метод Nexy() возвращает случайное число типа 'int'
-        int y = rand.Next(Console.BufferHeight);
-            Console.WriteLine($"X={x}, Y={y}");
+            //Генерация случайного числа
+            Random rand = new Random();             //1)Создаём объект класса 'Random'
+            int x = rand.Next(Console.BufferWidth); //2)Метод Nexy() возвращает случайное число типа 'int'
+            int y = rand.Next(Console.BufferHeight);
+            Console.WriteLine($"X = {x}, Y = {y}");
             Console.SetCursorPosition(x, y);
-            char symbol =(char) 2;
-        Console.WriteLine((char)2);
-
+            char symbol = (char)2;
+            Console.WriteLine(symbol);
             ConsoleKey key;
-            #region MyRegion
+            Console.CursorVisible = false;
             do
             {
                 key = Console.ReadKey(true).Key;
                 //Console.WriteLine(key);
                 //Console.WriteLine(key.ToString());
-                switch (key) 
+                switch (key)
                 {
-                    case ConsoleKey.UpArrow:
-                    
+                    case ConsoleKey.UpArrow: // Чтобы перемещать смайлик стрелочками
                     case ConsoleKey.W: y--; break;
+                    case ConsoleKey.DownArrow:
                     case ConsoleKey.S: y++; break;
-                    case ConsoleKey.A: x-=2; break;
-                    case ConsoleKey.D: x+=2; break;
+                    case ConsoleKey.LeftArrow:
+                    case ConsoleKey.A: x -= 2; break;
+                    case ConsoleKey.RightArrow:
+                    case ConsoleKey.D: x += 2; break;
                 }
-                Console.SetCursorPosition(x, y);
-                Console.WriteLine(symbol);
+                if (y < 1) y = 1;
+                if (x < 0) x = 0;
+                if (y > Console.BufferHeight - 1) y = Console.BufferHeight - 1;
+                if (x > Console.BufferWidth - 1) x = Console.BufferWidth - 1;
                 Console.Clear();
+                //https://learn.microsoft.com/ru-ru/dotnet/api/system.console.setcursorposition?view=netcore-3.1
+                Console.SetCursorPosition(x, y);
+                Console.Write(symbol);
             } while (key != ConsoleKey.Escape);
-        #endregion
-
-        //https://learn.microsoft.com/ru-ru/dotnet/api/system.console.setcursorposition?view=netcore-3.1
-        //    Console.SetCursorPosition(10, 10);
-        //    key = Console.ReadKey(true).Key;
-        //    do
-        //    {
-        //        switch (key)
-        //        {
-        //            case ConsoleKey.DownArrow:
-        //                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop); break;
-        //            case ConsoleKey.UpArrow:
-        //                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop); break;
-        //            case ConsoleKey.RightArrow:
-        //                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop); break;
-        //            case ConsoleKey.LeftArrow:
-        //                Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop); break;
-        //        }
-        //    } while (key != ConsoleKey.Escape);
-
         }
-
-
     }
 }
