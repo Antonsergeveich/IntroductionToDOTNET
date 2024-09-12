@@ -1,5 +1,6 @@
-﻿#define STARS
+﻿//#define STARS
 //#define HARDCHESS
+#define HARDCHESS2
 //#define CHESSBOARD
 using System;
 using System.Collections.Generic;
@@ -113,6 +114,22 @@ namespace Geometry
                 }
             }
             Console.WriteLine();  
+#endif
+
+#if HARDCHESS2
+            Console.WriteLine("Введите размер доски: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < size * size ; i++) 
+            {
+                for(int j = 0; j < size * size ; j++) 
+                {
+                    //https://learn.microsoft.com/ru-ru/dotnet/csharp/language-reference/operators/bitwise-and-shift-operators
+                    bool a = Convert.ToBoolean(i / size & 1);
+                    bool b = Convert.ToBoolean(j / size & 1);
+                    Console.Write( a ^ b ? "* " : "  ");
+                }
+                Console.WriteLine();
+            }
 #endif
 
 #if CHESSBOARD
