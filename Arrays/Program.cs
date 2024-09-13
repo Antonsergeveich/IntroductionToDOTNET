@@ -129,7 +129,6 @@ namespace Arrays
                 }
             }
             Console.WriteLine($"Сумма элементов зубчатого массива = {sumj}");
-
 #endif
         }
     }
