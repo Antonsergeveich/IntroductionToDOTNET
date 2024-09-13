@@ -53,6 +53,9 @@ namespace Calc
                 double b = Convert.ToDouble(tokens[1]);
                 //Вытаскиваем символ из строки:
                 //https://learn.microsoft.com/ru-ru/dotnet/api/system.string.indexofany?view=net-8.0
+                //IndexOfAny — это вариант метода string в C#, который выполняет поиск символьного индекса,
+                //принадлежащего строке, и возвращает первое вхождение в виде целого числа.
+                //string.IndexOfAny(char[]),` где `char[]` — это массив символов, составляющих строку.
                 char x = expression[expression.IndexOfAny(new char[] { '+', '-', '*', '/' })];
                 switch (x)
                 {
