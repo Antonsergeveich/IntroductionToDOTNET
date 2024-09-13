@@ -110,6 +110,7 @@ namespace Arrays
                 new int[]{34,55,89},
                 new int[]{144,233,377,610,987},
             };
+
             for (int i = 0; i < j_arr.Length; i++)
             {
                 for (int j = 0; j < j_arr[i].Length; j++)
@@ -120,19 +121,12 @@ namespace Arrays
             }
 
             int sumj = 0;
-            try
+            for (int i = 0; i < j_arr.Length; i++)
             {
-                for (int i = 0; i < j_arr.Length; i++)
+                for (int j = 0; j < j_arr[i].Length; j++)
                 {
-                    for (int j = 0; j < j_arr[i].Length; j++)
-                    {
-                        sumj += j_arr[i][j];
-                    }
+                    sumj += j_arr[i][j];
                 }
-            }
-            catch (Exception)
-            {
-                throw;
             }
             Console.WriteLine($"Сумма элементов зубчатого массива = {sumj}");
 
