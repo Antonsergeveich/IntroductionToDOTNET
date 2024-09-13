@@ -1,5 +1,5 @@
-﻿#define ARRAYS1
-#define ARRAYS2
+﻿//#define ARRAYS1
+//#define ARRAYS2
 #define JAGGED_ARRAYS
 using System;
 using System.Collections.Generic;
@@ -56,8 +56,11 @@ namespace Arrays
             //https://stackoverflow.com/questions/2419343/how-to-sum-up-an-array-of-integers-in-c-sharp
             int sum = arr.Sum();
             Console.WriteLine($"Сумма элементов одномерного массива = {sum}");
+            Console.WriteLine($"Среднее-арифметическое элементов одномерного массива = {sum}");
+            Console.WriteLine($"минимальное значение в  массива = {arr.Min()}");
+            Console.WriteLine($"максимальное значение в  массива = {arr.Max()}");
             foreach (int i in arr) sum += i;
-            Console.WriteLine($"Сумма элементов одномерного массива с использованием цикла foreach = {sum}");
+            Console.WriteLine($"Сумма элементов одномерного массива с использованием цикла foreach = {arr.Average()}");
 #endif
 #if ARRAYS2 // Двумерный
             //int[,] i_arr_2 = new int[3, 4]; // Размерность двумерного массива
@@ -83,23 +86,29 @@ namespace Arrays
                 Console.WriteLine();
             }
 
-            foreach (int i in i_arr_2)
-            //foreach -  не различает строки и столбики и выводит многомерный массив как одномерный
-            {
-                Console.Write(i + "\t");
-            }
-            Console.WriteLine();
+            Console.WriteLine() ;
+            Console.WriteLine($"Сумма элементов массива: {i_arr_2.Cast<int>().Sum()}");
+            Console.WriteLine($"Среднее арифметическое массива: {i_arr_2.Cast<int>().Average()}");
+            Console.WriteLine($"Минимальное значение в массива: {i_arr_2.Cast<int>().Min()}");
+            Console.WriteLine($"Максимальное значение в массива: {i_arr_2.Cast<int>().Max()}");
+            //Cast преобразует многомерный массив в одномерный массив
+            //foreach (int i in i_arr_2)
+            ////foreach -  не различает строки и столбики и выводит многомерный массив как одномерный
+            //{
+            //    Console.Write(i + "\t");
+            //}
+            //Console.WriteLine();
 
             //https://stackoverflow.com/questions/26290324/sum-of-all-numbers-in-a-multi-dimensional-array
-            for (int i = 0; i < i_arr_2.GetLength(0); i++)
-            {
-                for (int j = 0; j < i_arr_2.GetLength(1); j++)
-                {
-                    sum += i_arr_2[i, j];
-                }
-            }
-            Console.WriteLine($"Сумма элементов двумерного массива = {sum}");
-            Console.WriteLine();
+            //for (int i = 0; i < i_arr_2.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < i_arr_2.GetLength(1); j++)
+            //    {
+            //        sum += i_arr_2[i, j];
+            //    }
+            //}
+            //Console.WriteLine($"Сумма элементов двумерного массива = {sum}");
+            //Console.WriteLine();
 #endif
 #if JAGGED_ARRAYS //Зубчатые массивы
             int[][] j_arr = new int[][]
@@ -128,6 +137,21 @@ namespace Arrays
                 }
             }
             Console.WriteLine($"Сумма элементов зубчатого массива = {sumj}");
+            int sum = 0;
+            int count = 0;
+            int min, max;
+            min = max = j_arr[0][0];
+            for(int i = 0;i < j_arr.Length;i++)
+            {
+                sum += j_arr[i].Sum();
+                count += j_arr[i].Length;
+                if (j_arr[i].Min() < min)min = j_arr[i].Min();
+                if (j_arr[i].Max() > max)max = j_arr[i].Max();
+            }
+            Console.WriteLine($"Сумма элементов массива = {sum}");
+            Console.WriteLine($"Среднее-арифметическое элементов одномерного массива = {(double)sum/count}");
+            Console.WriteLine($"минимальное значение в  массива = {min}");
+            Console.WriteLine($"максимальное значение в  массива = {max}");
 #endif
         }
     }
