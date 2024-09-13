@@ -1,5 +1,5 @@
-﻿//#define ARRAYS1
-//#define ARRAYS2
+﻿#define ARRAYS1
+#define ARRAYS2
 #define JAGGED_ARRAYS
 using System;
 using System.Collections.Generic;
@@ -135,6 +135,7 @@ namespace Arrays
                 throw;
             }
             Console.WriteLine($"Сумма элементов зубчатого массива = {sumj}");
+
 #endif
         }
     }
