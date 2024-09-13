@@ -1,5 +1,5 @@
-﻿//#define ARRAYS1
-//#define ARRAYS2
+﻿#define ARRAYS1
+#define ARRAYS2
 #define JAGGED_ARRAYS
 using System;
 using System.Collections.Generic;
@@ -10,8 +10,6 @@ using System.Threading.Tasks;
 //1) Single dimensional;
 //2) Multi dimensional;
 //3) Jagged;
-
-
 
 namespace Arrays
 {
@@ -54,7 +52,12 @@ namespace Arrays
                 ...........;
             }
             ------------------------------------
-            */ 
+            */
+            //https://stackoverflow.com/questions/2419343/how-to-sum-up-an-array-of-integers-in-c-sharp
+            int sum = arr.Sum();
+            Console.WriteLine($"Сумма элементов одномерного массива = {sum}");
+            foreach (int i in arr) sum += i;
+            Console.WriteLine($"Сумма элементов одномерного массива с использованием цикла foreach = {sum}");
 #endif
 
 #if ARRAYS2 // Двумерный
@@ -87,6 +90,17 @@ namespace Arrays
                 Console.Write(i + "\t");
             }
             Console.WriteLine();
+
+            //https://stackoverflow.com/questions/26290324/sum-of-all-numbers-in-a-multi-dimensional-array
+            for (int i = 0; i < i_arr_2.GetLength(0); i++)
+            {
+                for (int j = 0; j < i_arr_2.GetLength(1); j++)
+                {
+                    sum += i_arr_2[i, j];
+                }
+            }
+            Console.WriteLine($"Сумма элементов двумерного массива = {sum}");
+            Console.WriteLine();
 #endif
 #if JAGGED_ARRAYS //Зубчатые массивы
             int[][] j_arr = new int[][]
@@ -104,8 +118,8 @@ namespace Arrays
                 }
                 Console.WriteLine();
             }
-#endif
 
+#endif
         }
     }
 }
