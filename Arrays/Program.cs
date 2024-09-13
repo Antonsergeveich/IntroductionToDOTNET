@@ -1,5 +1,5 @@
-﻿#define ARRAYS1
-#define ARRAYS2
+﻿//#define ARRAYS1
+//#define ARRAYS2
 #define JAGGED_ARRAYS
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace Arrays
 {
     internal class Program
     {
-        static void Main(string[] args, int sum_jagged)
+        static void Main(string[] args)
         {
 #if ARRAYS1 // Одномерный
             //int[] arr = new int[] { 3, 5, 8, 13, 21 };
@@ -120,12 +120,19 @@ namespace Arrays
             }
 
             int sumj = 0;
-            for (int i = 0; i < j_arr.Length; i++)
+            try
             {
-                for (int j = 0; j < j_arr[i].Length; j++)
+                for (int i = 0; i < j_arr.Length; i++)
                 {
-                    sumj += j_arr[i][j];
+                    for (int j = 0; j < j_arr[i].Length; j++)
+                    {
+                        sumj += j_arr[i][j];
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
             }
             Console.WriteLine($"Сумма элементов зубчатого массива = {sumj}");
 #endif
