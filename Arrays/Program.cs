@@ -59,7 +59,6 @@ namespace Arrays
             foreach (int i in arr) sum += i;
             Console.WriteLine($"Сумма элементов одномерного массива с использованием цикла foreach = {sum}");
 #endif
-
 #if ARRAYS2 // Двумерный
             //int[,] i_arr_2 = new int[3, 4]; // Размерность двумерного массива
             int[,] i_arr_2 = new int[,]
