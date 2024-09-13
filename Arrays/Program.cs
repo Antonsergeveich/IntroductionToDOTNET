@@ -15,7 +15,7 @@ namespace Arrays
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args, int sum_jagged)
         {
 #if ARRAYS1 // Одномерный
             //int[] arr = new int[] { 3, 5, 8, 13, 21 };
@@ -110,15 +110,24 @@ namespace Arrays
                 new int[]{34,55,89},
                 new int[]{144,233,377,610,987},
             };
-            for(int i = 0; i < j_arr.Length; i++)
+            for (int i = 0; i < j_arr.Length; i++)
             {
-                for(int j = 0; j < j_arr[i].Length; j++)
+                for (int j = 0; j < j_arr[i].Length; j++)
                 {
                     Console.Write(j_arr[i][j] + "\t");
                 }
                 Console.WriteLine();
             }
 
+            int sumj = 0;
+            for (int i = 0; i < j_arr.Length; i++)
+            {
+                for (int j = 0; j < j_arr[i].Length; j++)
+                {
+                    sumj += j_arr[i][j];
+                }
+            }
+            Console.WriteLine($"Сумма элементов зубчатого массива = {sumj}");
 #endif
         }
     }
